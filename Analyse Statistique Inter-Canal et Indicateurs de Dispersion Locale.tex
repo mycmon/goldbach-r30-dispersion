@@ -1,0 +1,329 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{analyse-statistique-inter-canal-et-indicateurs-de-dispersion-locale}{%
+\section{Analyse Statistique Inter-Canal et Indicateurs de Dispersion
+Locale}\label{analyse-statistique-inter-canal-et-indicateurs-de-dispersion-locale}}
+
+L\textquotesingle étude expérimentale de la répartition des couples de
+candidats le long des axes de la structure modulaire \(\mathbb{R}_{30}\)
+met en évidence des propriétés géométriques et de régularité
+remarquables. En isolant le comportement local des flux au moyen
+d\textquotesingle analyses par fenêtres glissantes et de calculs de
+variance, il devient possible de quantifier la robustesse du modèle face
+aux mécanismes d\textquotesingle élimination du crible.
+
+\hypertarget{1-description-du-protocole-expuxe9rimental}{%
+\subsection{1. Description du Protocole
+Expérimental}\label{1-description-du-protocole-expuxe9rimental}}
+
+Le modèle segmente l\textquotesingle espace des solutions paires en
+canaux distincts fondés sur le groupe multiplicatif
+\((\mathbb{Z}/30\mathbb{Z})^\times\). Pour un entier pair \(N\) donné,
+les candidats \((p, q)\) respectant la relation \(p + q = N\) sont
+regroupés selon leurs classes de congruence résiduelles mod 30.
+
+\hypertarget{figure-1--matrice-dactivation-combinatoire-modulo-30}{%
+\subsubsection{Figure 1 : Matrice d\textquotesingle Activation
+Combinatoire Modulo
+30}\label{figure-1--matrice-dactivation-combinatoire-modulo-30}}
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig1_activation_matrix.png}
+
+Cette matrice cartographie l\textquotesingle activation des classes
+résiduelles finies et montre comment les interactions multiplicatives
+s\textquotesingle organisent pour un \(N\) donné.
+
+\begin{itemize}
+\item
+  XSG = Nombre Non Sophie Germain
+\item
+  SG = Nombre Sophie Germain
+\end{itemize}
+
+Afin de mesurer finement la dispersion et la régularité locale à
+l\textquotesingle intérieur de ces canaux, l\textquotesingle espace de
+chaque canal admissible est partitionné en \(B\) sous-blocs consécutifs
+(par exemple, 8 blocs successifs contenant chacun un échantillon fixe de
+1000 paires de candidats). Un processus de crible local de niveau
+\(z = \sqrt{N}\) est appliqué à chaque bloc afin
+d\textquotesingle évaluer le taux de survie des couples.
+
+\hypertarget{figure-2--projection-circulaire-du-cercle-de-phase--ux1d445-30}{%
+\subsubsection{\texorpdfstring{Figure 2 : Projection Circulaire du
+Cercle de Phase
+\(\mathbb{R}_{30}\)}{Figure 2 : Projection Circulaire du Cercle de Phase \textbackslash mathbb\{R\}\_\{30\}}}\label{figure-2--projection-circulaire-du-cercle-de-phase--ux1d445-30}}
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig2_circle_R30.png}
+
+Visualisation géométrique de l\textquotesingle espace des phases
+\(\mathbb{R}_{30}\) mettant en évidence les symétries rigides des 8
+classes de nombres premiers.
+
+Les indicateurs statistiques suivants sont systématiquement calculés
+pour chaque canal :
+
+\begin{itemize}
+\item
+  \textbf{La moyenne locale (\(\mu\))} du taux de survie sur
+  l\textquotesingle ensemble des blocs.
+\item
+  \textbf{L\textquotesingle écart-type (\(\sigma\))} et la
+  \textbf{variance (\(\sigma^2\))} mesurant la fluctuation du taux
+  d\textquotesingle un bloc à un autre.
+\item
+  \textbf{L\textquotesingle Indice de Dispersion (ou Facteur de Fano,
+  \(I_D = \sigma^2 / \mu\))} caractérisant la nature de la distribution
+  statistique sous-jacente.
+\end{itemize}
+
+\hypertarget{2-analyse-des-indicateurs-statistiques-et-interpruxe9tation}{%
+\subsection{2. Analyse des Indicateurs Statistiques et
+Interprétation}\label{2-analyse-des-indicateurs-statistiques-et-interpruxe9tation}}
+
+Les données récoltées sur plusieurs ordres de grandeur (de \(10^8\) à
+\(5 \times 10^9\)) révèlent trois caractéristiques majeures de
+l\textquotesingle organisation modulaire.
+
+\hypertarget{figure-3--enveloppe-spectrale-et-ondes-du-crible}{%
+\subsubsection{Figure 3 : Enveloppe Spectrale et Ondes du
+Crible}\label{figure-3--enveloppe-spectrale-et-ondes-du-crible}}
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig3_spectral_envelope.png}
+
+Illustration des forces d\textquotesingle exclusion du crible et de
+leurs modulations harmoniques à grande échelle.
+
+\hypertarget{a-la-sous-dispersion-extruxeame-et-lindice-de-fano}{%
+\subsubsection{A. La Sous-Dispersion Extrême et l\textquotesingle Indice
+de Fano}\label{a-la-sous-dispersion-extruxeame-et-lindice-de-fano}}
+
+L\textquotesingle indicateur le plus significatif réside dans
+l\textquotesingle affaiblissement systématique de
+l\textquotesingle indice de dispersion (\(I_D\)). Dans un modèle
+purement stochastique où la distribution des nombres premiers obéirait à
+un processus de Poisson déconnecté de toute contrainte modulaire,
+l\textquotesingle indice de dispersion fluctuerait autour de \(1\). Or,
+les observations empiriques indiquent des valeurs uniformément basses,
+chutant fréquemment sous le seuil de \(0.1\).
+
+\hypertarget{graphique-b--analyse-de-lindice-de-dispersion-facteur-de-fano-par-canal}{%
+\subsubsection{Graphique B : Analyse de l\textquotesingle Indice de
+Dispersion (Facteur de Fano) par
+Canal}\label{graphique-b--analyse-de-lindice-de-dispersion-facteur-de-fano-par-canal}}
+
+Le graphique ci-dessous illustre ce fossé structurel : alors que le
+hasard pur se situe sur la ligne rouge (\(1.0\)), les indices des canaux
+réels restent écrasés au sol, confirmant une sous-dispersion
+mathématique stricte.
+
+L\textquotesingle alignement des ondes de crible sur la géométrie de la
+roue de 30 engendre un effet de lissage : les éliminations de candidats
+ne se regroupent pas de façon chaotique, interdisant localement
+l\textquotesingle apparition de grands vides ou de « déserts » absolus
+au sein du canal.
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/monfette_dispersion_1000000008.png}
+
+\hypertarget{b-luxe9quidistribution-des-canaux-simultanuxe9s}{%
+\subsubsection{B. L\textquotesingle Équidistribution des Canaux
+Simultanés}\label{b-luxe9quidistribution-des-canaux-simultanuxe9s}}
+
+L\textquotesingle examen des moyennes de survie (\(\mu\)) entre les
+différents canaux d\textquotesingle un même niveau \(N\) montre une
+homogénéité remarquable. À l\textquotesingle échelle de \(N = 1\)
+Milliard, les canaux configurés pour ce point se déploient avec des
+moyennes de survie quasi-identiques : \textbf{7.12\%} pour le canal
+\((1,17)\), \textbf{6.73\%} pour le canal \((7,11)\), et \textbf{7.02\%}
+pour le canal \((19,29)\).
+
+\hypertarget{graphique-a--uxe9volution-locale-du-taux-de-survie-par-bloc-consuxe9cutif}{%
+\subsubsection{Graphique A : Évolution Locale du Taux de Survie par Bloc
+Consécutif}\label{graphique-a--uxe9volution-locale-du-taux-de-survie-par-bloc-consuxe9cutif}}
+
+On observe graphiquement la trajectoire lissée et parallèle de ces flux
+à travers les blocs de candidats successifs, excluant toute anomalie
+locale ou effondrement imprévu.
+
+Cette observation valide la régularité du comportement des fonctions de
+Dirichlet associées aux classes résiduelles de la roue de 30. Les forces
+d\textquotesingle exclusion du crible s\textquotesingle exercent de
+manière équitable, sans introduire de distorsion ou de biais majeur en
+faveur d\textquotesingle un tunnel particulier.
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/monfette_taux_survie_1000000008.png}
+
+\hypertarget{figure-4--la-comuxe8te-de-goldbach-et-sa-distribution-macroscopique}{%
+\subsubsection{Figure 4 : La Comète de Goldbach et sa Distribution
+Macroscopique}\label{figure-4--la-comuxe8te-de-goldbach-et-sa-distribution-macroscopique}}
+
+Perspective macroscopique classique de la distribution des couples,
+servant de point de comparaison global avec la régularité microscopique
+observée au sein des canaux.
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig4_goldbach_comet.png}
+
+\hypertarget{c-le-muxe9canisme-de-non-extinction-globale}{%
+\subsubsection{C. Le Mécanisme de Non-Extinction
+Globale}\label{c-le-muxe9canisme-de-non-extinction-globale}}
+
+La trajectoire asymptotique analysée jusqu\textquotesingle à 5 Milliards
+(\(N = 5\,000\,000\,030\)) confirme la robustesse géométrique du
+dispositif. Face à l\textquotesingle augmentation drastique du nombre de
+facteurs premiers testés (passant de 1 226 à 7 001 facteurs), la
+déviation standard (\(\sigma\)) reste confinée aux alentours de
+\textbf{1\%}.
+
+\hypertarget{figure-5--diagramme-de-dualituxe9-de-phase-des-candidats}{%
+\subsubsection{Figure 5 : Diagramme de Dualité de Phase des
+Candidats}\label{figure-5--diagramme-de-dualituxe9-de-phase-des-candidats}}
+
+Cartographie des symétries et des relations de dualité de phase entre
+les composantes paires et impaires du modèle.
+
+Même au sein des sous-blocs les plus exposés aux éliminations croisées,
+le nombre absolu de paires survivantes reste largement supérieur à zéro.
+La décroissance de la variance à mesure que \(N\) grandit rend la
+probabilité d\textquotesingle une fluctuation simultanée sur
+l\textquotesingle ensemble des canaux admissibles extrêmement
+improbable.
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig5_duality_diagram.png}
+
+\hypertarget{figure-6--histogramme-des-indices-de-ruxe9gularituxe9-kappa--ux1d705-}{%
+\subsubsection{\texorpdfstring{Figure 6 : Histogramme des Indices de
+Régularité Kappa
+(\(\kappa\))}{Figure 6 : Histogramme des Indices de Régularité Kappa (\textbackslash kappa)}}\label{figure-6--histogramme-des-indices-de-ruxe9gularituxe9-kappa--ux1d705-}}
+
+Distribution statistique empirique validant les indices de régularité
+mesurés sur l\textquotesingle ensemble de la campagne de calculs.
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig6_kappa_histogram.png}
+
+\hypertarget{3-synthuxe8se-des-observations-numuxe9riques}{%
+\subsection{3. Synthèse des Observations
+Numériques}\label{3-synthuxe8se-des-observations-numuxe9riques}}
+
+Le tableau ci-dessous résume l\textquotesingle évolution des indicateurs
+de dispersion et confirme la stabilisation des flux sur les
+configurations testées :
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule\noalign{}
+\textbf{Valeur de N} & \textbf{Niveau du Crible (z)} & \textbf{Nombre de
+Premiers} & \textbf{Canal Modulaire} & \textbf{Moyenne (μ)} &
+\textbf{Écart-type (σ)} & \textbf{Indice de Dispersion (ID)} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{\(100\,000\,018\)} & \(10\,000\) & 1 226 & \((11,17)\)
+\((29,29)\) & \(6.812\%\) \(6.775\%\) & \(0.936\) \(0.772\) & \(0.1286\)
+\textbf{\(0.0881\)} \\
+\textbf{\(1\,000\,000\,008\)} & \(31\,622\) & 3 398 & \((1,17)\)
+\((7,11)\) \((19,29)\) & \(7.125\%\) \(6.738\%\) \(7.025\%\) & \(1.036\)
+\(0.583\) \(0.808\) & \(0.1508\) \textbf{\(0.0504\)} \(0.0931\) \\
+\textbf{\(5\,000\,000\,030\)} & \(70\,710\) & 7 001 & \((1,19)\)
+\((7,13)\) & \(5.225\%\) \(5.050\%\) & \(1.062\) \(0.886\) & \(0.2161\)
+\(0.1554\) \\
+\end{longtable}
+
+\hypertarget{4-conclusion-provisoire}{%
+\subsection{4. Conclusion Provisoire}\label{4-conclusion-provisoire}}
+
+L\textquotesingle approche par indicateurs de dispersion montre que
+l\textquotesingle extinction simultanée des canaux est contrecarrée par
+deux facteurs empiriques : la très faible variance inter-blocs et la
+valeur minimale de l\textquotesingle indice de Fano. Ces observations
+suggèrent que la structure géométrique modulaire impose une contrainte
+de régularité interne, garantissant le maintien de flux actifs de
+candidats pour tout \(N\) pair échantillonné.
+
+\hypertarget{figure-7--cube-topologique----3-uxd7-3-uxd7-3--des-configurations-minimales}{%
+\subsubsection{\texorpdfstring{Figure 7 : Cube Topologique
+\(3 \times 3 \times 3\) des Configurations
+Minimales}{Figure 7 : Cube Topologique 3 \textbackslash times 3 \textbackslash times 3 des Configurations Minimales}}\label{figure-7--cube-topologique----3-uxd7-3-uxd7-3--des-configurations-minimales}}
+
+Modélisation tridimensionnelle des contraintes de recouvrement non vides
+(discutée en annexes ou en lien avec la formalisation Lean 4).
+
+\includegraphics{/home/mycmon/Documents/7. TH1-TH11-C1-C5/TH12/fig7_cube_3x3x3.png}
+
+\end{document}
